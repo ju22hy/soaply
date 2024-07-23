@@ -8,7 +8,7 @@ const getData = async () => {
       return res.json();
     })
     .then((data) => {
-      // console.log(data);
+      console.log(data);
       let dataElement;
 
       data.map((item) => {
@@ -21,12 +21,12 @@ const getData = async () => {
             <div class="slider-text">
               <h4>${item.pro_name}</h4>
               <p>${item.pro_desc}</p>
-              <a href="#" class="common-btn">자세히 보기</a>
+              <a href="details.html?idx=${item.pro_idx}" class="common-btn">자세히 보기</a>
             </div>
           </div>
         `; //따옴표 아니고 ` << 이거임 주의
         sliderWrapper.insertAdjacentHTML('beforeend', dataElement);
-        //?? - 이 javascript를 매끄럽게 실행하려면 HTML과 CSS가 선행되어야 하는가?
+        //?? - 이 javascript를 매끄럽게 실행하려면 HTML과 CSS가 선행되어야 하는가? = HTML로 클래스 부여해야 작동하니까 어느정도는 맞는 말이다 css는 개발자 작업 스타일에 따라 다른듯
       });
     })
     .catch((error) => {
